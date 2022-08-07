@@ -1,15 +1,3 @@
-import { handleExec } from './exec-service';
-import { CmdExec } from './types';
+import { startUp } from './app';
 
-const pingCmd: CmdExec = {
-  mainCmd: 'ping',
-  paramsCmd: ['-n 5', '8.8.8.8'],
-};
-
-const nslookupCmd: CmdExec = {
-  mainCmd: 'nslookup',
-  paramsCmd: ['google.com'],
-};
-
-const cmdToExecute: CmdExec[] = [pingCmd, nslookupCmd];
-handleExec(cmdToExecute);
+startUp();

@@ -1,0 +1,4 @@
+# Insert the commands to execute. Separate them on different lines
+
+ping -n 5 8.8.8.8
+nslookup google.com
