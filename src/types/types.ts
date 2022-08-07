@@ -1,8 +1,7 @@
-import { ExecException as string } from 'child_process';
-
-export interface ICmdExec {
+export interface ICmd {
+  name?: string;
   mainCmd: string;
-  paramsCmd: string[];
+  paramsCmd?: string;
 }
 
 export interface ICmdOutput {

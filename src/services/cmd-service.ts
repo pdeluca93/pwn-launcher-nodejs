@@ -1,14 +1,15 @@
 import { exec } from 'child_process';
-import { ICmdExec } from '../types/types';
+import { ICmd } from '../types/types';
 import colors from 'colors';
 import { handleOutput } from './output-service';
 
-const triggerCmdExec = (cmdToExec: string, mainCmd: string) => {
-  console.log(colors.blue(`Executing ${cmdToExec}`));
+const triggerCmdExec = (cmd: ICmd) => {
+  const cmdToEexec = `${cmd.mainCmd} ${cmd.paramsCmd || ''}`.trim();
+  console.log(colors.blue(`Executing ${cmdToEexec}`));
 
-  exec(cmdToExec, (error, stdout, stderr) => {
+  exec(cmdToEexec, (error, stdout, stderr) => {
     handleOutput({
-      mainCmd,
+      mainCmd: cmd.mainCmd,
       error: (error && error.toString()) || '',
       stdout,
       stderr,
@@ -16,12 +17,9 @@ const triggerCmdExec = (cmdToExec: string, mainCmd: string) => {
   });
 };
 
-const handleCmdExec = (cmdExec: ICmdExec[]) => {
-  cmdExec.forEach((c) => {
-    const params = c.paramsCmd.join(' ');
-    const cmdToEexec = `${c.mainCmd} ${params}`;
-
-    triggerCmdExec(cmdToEexec, c.mainCmd);
+const handleCmdExec = (cmds: ICmd[]) => {
+  cmds.forEach((c) => {
+    triggerCmdExec(c);
   });
 };
 

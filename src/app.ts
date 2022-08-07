@@ -1,9 +1,21 @@
+import { getCmdFromFiles } from './handlers/filetext-input-handler';
 import { handleCmdExec } from './services/cmd-service';
-import { ICmdExec } from './types/types';
 
-const startUp = () => {
+const startUp = async () => {
+  const cmdToExec = await getCmdFromFiles();
 
-  handleCmdExec(cmdToExec);
+  const pingCmd = {
+    mainCmd: 'ping',
+    paramsCmd: '-n 5 8.8.8.8',
+  };
+
+  const nslookupCmd = {
+    mainCmd: 'nslookup',
+    paramsCmd: 'google.com',
+  };
+
+  const finalCmdToExec = [pingCmd, nslookupCmd, ...cmdToExec];
+  handleCmdExec(finalCmdToExec);
 };
 
 export { startUp };

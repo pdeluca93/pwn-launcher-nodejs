@@ -10,7 +10,11 @@ import {
 import { ICmdOutput } from '../types/types';
 
 const writeOutputFile = (fileToWrite: string, message: string) => {
-  fse.outputFileSync(fileToWrite, message, { flag: 'a' });
+  try {
+    fse.outputFileSync(fileToWrite, message, { flag: 'a' });
+  } catch (err) {
+    console.log(colors.red(`Error writing output file: ${err}`));
+  }
 };
 
 const handleOutput = (output: ICmdOutput) => {
