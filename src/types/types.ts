@@ -1,5 +1,4 @@
 export interface ICmd {
-  name?: string;
   mainCmd: string;
   paramsCmd?: string;
 }

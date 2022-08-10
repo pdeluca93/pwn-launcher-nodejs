@@ -3,9 +3,9 @@ import { sep } from 'path';
 import { createInterface } from 'readline';
 import { COMMENT_CHARACTER_INPUT_FILE, INPUT_FOLDER } from '../config/config';
 import { ICmd } from '../types/types';
+import colors from 'colors';
 
-const getCmdFromFiles = async () => {
-  const fileToRead = `${INPUT_FOLDER}${sep}example.txt`;
+const getCmdFromFile = async (fileToRead: string) => {
   const inputStream = fse.createReadStream(fileToRead);
 
   const lineReader = createInterface({
@@ -13,21 +13,17 @@ const getCmdFromFiles = async () => {
     terminal: false,
   });
 
-  // const parseCmdWithName = (cmd: string) => {};
-
   const cmds: ICmd[] = [];
-  for await (const line of lineReader) {
-    const trimmedLine = line.trim();
+  for await (const l of lineReader) {
+    const trimmedLine = l.trim();
 
     if (!trimmedLine || trimmedLine.startsWith(COMMENT_CHARACTER_INPUT_FILE)) {
       continue;
     }
 
-    const lineSplitted = line.split(' ');
+    const lineSplitted = l.split(' ');
 
     const mainCmd = lineSplitted[0];
-    // if(mainCmd.startsWith('<')){
-    // }
 
     const readedCmd: ICmd = {
       mainCmd,
@@ -38,6 +34,22 @@ const getCmdFromFiles = async () => {
   }
 
   return cmds;
+};
+
+const getCmdFromFiles = async () => {
+  const finalCmds: ICmd[] = [];
+  try {
+    const files = await fse.readdir(INPUT_FOLDER);
+    for await (const f of files) {
+      const filePath = `${INPUT_FOLDER}${sep}${f}`;
+      const cmds = await getCmdFromFile(filePath);
+      finalCmds.push(...cmds);
+    }
+  } catch (err) {
+    console.log(colors.red(`Error writing output file: ${err}`));
+  }
+
+  return finalCmds;
 };
 
 export { getCmdFromFiles };
