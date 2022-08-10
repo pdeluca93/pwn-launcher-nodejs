@@ -1,4 +1,0 @@
-# Insert the commands to execute. Separate them on different lines
-
-ping -n 3 google.com
-nslookup yahoo.com

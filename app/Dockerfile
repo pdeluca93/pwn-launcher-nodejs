@@ -12,9 +12,6 @@ WORKDIR /app
 COPY package*.json ./
 COPY tsconfig.json ./
 
-# Copy input folder 
-COPY input ./input
-
 # copy source code to /app/src folder
 COPY src /app/src
 

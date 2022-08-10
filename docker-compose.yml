@@ -1,0 +1,13 @@
+services:
+  pwn-launcher:
+    container_name: pwn-launcher
+    restart: on-failure
+    build:
+      context: .\app
+    volumes:
+      - type: bind
+        source: ./input
+        target: /app/input
+      - type: bind
+        source: ./output
+        target: /app/output
