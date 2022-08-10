@@ -305,5 +305,8 @@ $RECYCLE.BIN/
 
 # Custom
 
-/output/
-# End of https://www.toptal.com/developers/gitignore/api/linux,windows,macos,node,intellij+all
+!output
+output/*
+!output/.gitkeep
+
+ End of https://www.toptal.com/developers/gitignore/api/linux,windows,macos,node,intellij+all
