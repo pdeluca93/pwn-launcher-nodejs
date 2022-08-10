@@ -1,3 +1,3 @@
 # Here write the commands. Lines starting with hashtag will be ignored
-ping -c 4 8.8.8.8
+piang -c 4 8.8.8.8
 nslookup yahoo.com
