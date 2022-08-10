@@ -1,21 +1,14 @@
 import { getCmdFromFiles } from './handlers/filetext-input-handler';
 import { handleCmdExec } from './services/cmd-service';
+import { ICmd } from './types/types';
 
 const startUp = async () => {
-  const cmdToExec = await getCmdFromFiles();
+  const cmds = await getCmdFromFiles();
+  // In this array you can add hardcoded commands
+  const hardcodedCmds: ICmd[] = [];
 
-  const pingCmd = {
-    mainCmd: 'ping',
-    paramsCmd: '-n 5 8.8.8.8',
-  };
-
-  const nslookupCmd = {
-    mainCmd: 'nslookup',
-    paramsCmd: 'google.com',
-  };
-
-  const finalCmdToExec = [pingCmd, nslookupCmd, ...cmdToExec];
-  handleCmdExec(finalCmdToExec);
+  const finalCmds = [...hardcodedCmds, ...cmds];
+  handleCmdExec(finalCmds);
 };
 
 export { startUp };

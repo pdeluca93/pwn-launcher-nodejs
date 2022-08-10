@@ -1,1 +1,0 @@
-ping -n 4 taringa.net

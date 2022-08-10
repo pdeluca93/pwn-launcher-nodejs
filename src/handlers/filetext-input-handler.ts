@@ -46,7 +46,7 @@ const getCmdFromFiles = async () => {
       finalCmds.push(...cmds);
     }
   } catch (err) {
-    console.log(colors.red(`Error writing output file: ${err}`));
+    console.log(colors.red(`Error reading input file: ${err}`));
   }
 
   return finalCmds;
