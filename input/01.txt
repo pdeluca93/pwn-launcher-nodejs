@@ -2,4 +2,6 @@
 # IP=8.8.8.8
 # PORTS=[80, 8080]
 # nmap -p- --min-rate 5000 -sV <IP> -oN service_version
-nmap -p- --min-rate 5000 -sV 161.190.1.4 
+# nmap -p- --min-rate 5000 -sV 161.190.1.4 
+ ping -c 5 8.8.8.8
+ nslookup google.com

@@ -4,7 +4,7 @@ services:
     restart: on-failure
     tty: true        # docker run -t
     build:
-      context: .\app
+      context: ./app
     volumes:
       - type: bind
         source: ./input

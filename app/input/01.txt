@@ -1,4 +1,0 @@
-# Here write the commands. Lines starting with hashtag will be ignored
-# IP=8.8.8.8
-ping -n 4 8.8.8.8
-nslookup yahoo.com

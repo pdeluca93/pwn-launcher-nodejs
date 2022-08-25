@@ -1,9 +1,10 @@
-FROM node:lts-alpine
+FROM kalilinux/kali-rolling:latest
 
 # update packages
-RUN apk update
-RUN apk add iputils
-RUN apk add nmap
+RUN apt-get update
+RUN apt-get -y install iputils-ping dnsutils nmap curl 
+RUN curl -sL https://deb.nodesource.com/setup_16.x  | bash -
+RUN apt-get -y install nodejs
 
 # create root application folder
 WORKDIR /app
@@ -18,4 +19,4 @@ COPY src /app/src
 RUN npm install
 RUN npm run build
 
-CMD [ "node", "./src/index.js --color" ]
+CMD [ "node", "./src/index.js" ]
