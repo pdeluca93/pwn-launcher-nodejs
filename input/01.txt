@@ -1,3 +1,5 @@
 # Here write the commands. Lines starting with hashtag will be ignored
-piang -c 4 8.8.8.8
-nslookup yahoo.com
+# IP=8.8.8.8
+# PORTS=[80, 8080]
+# nmap -p- --min-rate 5000 -sV <IP> -oN service_version
+nmap -p- --min-rate 5000 -sV 161.190.1.4 

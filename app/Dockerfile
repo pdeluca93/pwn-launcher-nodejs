@@ -1,9 +1,9 @@
 FROM node:lts-alpine
 
-
 # update packages
 RUN apk update
 RUN apk add iputils
+RUN apk add nmap
 
 # create root application folder
 WORKDIR /app
@@ -18,4 +18,4 @@ COPY src /app/src
 RUN npm install
 RUN npm run build
 
-CMD [ "node", "./src/index.js" ]
+CMD [ "node", "./src/index.js --color" ]
