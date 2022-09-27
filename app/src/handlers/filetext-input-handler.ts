@@ -14,15 +14,14 @@ const getCmdFromFile = async (fileToRead: string) => {
   });
 
   const cmds: ICmd[] = [];
-  for await (const l of lineReader) {
-    const trimmedLine = l.trim();
+  for await (const line of lineReader) {
+    const trimmedLine = line.trim();
 
     if (!trimmedLine || trimmedLine.startsWith(COMMENT_CHARACTER_INPUT_FILE)) {
       continue;
     }
 
-    const lineSplitted = l.split(' ');
-
+    const lineSplitted = line.split(' ');
     const mainCmd = lineSplitted[0];
 
     const readedCmd: ICmd = {

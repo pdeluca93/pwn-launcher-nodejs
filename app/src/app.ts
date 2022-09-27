@@ -4,7 +4,7 @@ import { ICmd } from './types/types';
 
 const startUp = async () => {
   const cmds = await getCmdFromFiles();
-  // In this array you can add hardcoded commands
+  // In this array you can add hardcoded commands (not recommended)
   const hardcodedCmds: ICmd[] = [];
 
   const finalCmds = [...hardcodedCmds, ...cmds];
