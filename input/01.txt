@@ -1,4 +1,4 @@
 # Here write the commands. Lines starting with hashtag will be ignored
- nmap -O 127.0.0.1
- ping -c 5 8.8.8.8
- nslookup google.com
+nmap -O 127.0.0.1
+ping -c 5 8.8.8.8
+nslookup google.com
