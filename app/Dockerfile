@@ -1,10 +1,9 @@
-FROM kalilinux/kali-rolling:latest
+FROM node:lts-alpine
 
-# update packages
-RUN apt-get update
-RUN apt-get -y install iputils-ping dnsutils nmap curl 
-RUN curl -sL https://deb.nodesource.com/setup_16.x  | bash -
-RUN apt-get -y install nodejs
+# update and install packages
+RUN apk update
+RUN apk add iputils
+RUN apk add nmap
 
 # create root application folder
 WORKDIR /app

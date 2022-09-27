@@ -2,7 +2,7 @@ services:
   pwn-launcher:
     container_name: pwn-launcher
     restart: on-failure
-    tty: true        # docker run -t
+    tty: true        
     build:
       context: ./app
     volumes:
