@@ -18,4 +18,8 @@ As I said before, the project is in the initial steps. For now the easiest way t
 In a near future, I'll create a more user-friendly way to use it.
 ## How to add support for more commands?
 
-At the moment the only way is to add the installation of the command you want in the `Dockerfile` placed on the `app` directory. Keep in mind that the Dockerfile is using the Alpine Linux distribution, so you'll need to find out the name of the package that contains the command you want. You can search it 	[here](https://pkgs.alpinelinux.org/).
+At the moment the only way is to add the installation of the command you want in the `Dockerfile` placed on the `app` directory. 
+
+Keep in mind that the Dockerfile is using the Alpine Linux distribution, so you'll need to find out the name of the package that contains the command you want. You can search it 	[here](https://pkgs.alpinelinux.org/).
+
+After adding the installation of the package(s) to the dockerfile, run docker `compose build pwn-launcher` before executing it again, to build a new docker image which will contain the installed package(s).
