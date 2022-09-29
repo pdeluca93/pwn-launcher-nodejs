@@ -4,7 +4,7 @@
 
 pwn-launcher is essentially a script launcher. It's a hobby project and it's in the initial steps, so I've a lot of improvements to do and some bugfixing too.
 
-The motivation for this project comes through a conversation I had with a colleague who works as a Pentester. He was complaining that he doesn't have any way to automatize his scripting.
+The motivation for this project comes through a conversation I had with a colleague (and friend) who works as a Pentester. He was complaining that he doesn't have any way to automatize his scripting.
 
 ## How to use it?
 As I said before, the project is in the initial steps. For now the easiest way to use it, is the following:
