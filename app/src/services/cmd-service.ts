@@ -18,8 +18,8 @@ const triggerCmdExec = (cmd: ICmd) => {
 };
 
 const handleCmdExec = (cmds: ICmd[]) => {
-  cmds.forEach((c) => {
-    triggerCmdExec(c);
+  cmds.forEach((cmd) => {
+    triggerCmdExec(cmd);
   });
 };
 

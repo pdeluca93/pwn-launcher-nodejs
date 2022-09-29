@@ -39,8 +39,8 @@ const getCmdFromFiles = async () => {
   const finalCmds: ICmd[] = [];
   try {
     const files = await fse.readdir(INPUT_FOLDER);
-    for await (const f of files) {
-      const filePath = `${INPUT_FOLDER}${sep}${f}`;
+    for await (const file of files) {
+      const filePath = `${INPUT_FOLDER}${sep}${file}`;
       const cmds = await getCmdFromFile(filePath);
       finalCmds.push(...cmds);
     }
