@@ -1,4 +1,4 @@
-# pwn-launcher **Developed before the AI era** 🤣
+# pwn-launcher - **Developed before the AI era** 🤣
 
 ## Overview
 
